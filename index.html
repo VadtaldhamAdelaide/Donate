@@ -4,216 +4,263 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donation Details - Shree Swaminarayan Vadtaldham Sanatan Mandir Adelaide</title>
-    <!-- Loading Tailwind CSS for high fidelity layout & styling -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        templeRed: '#a81c1c',
+                        templeGold: '#f4a261',
+                        templeDarkGold: '#e76f51',
+                        bgSaffron: '#fffbf4'
+                    }
+                }
+            }
         }
-        /* Custom smooth transition effects */
-        .transition-all-custom {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Premium custom styling */
+        body {
+            background-color: #fffaf0;
+            background-image: radial-gradient(#fcefd2 0.8px, transparent 0.8px);
+            background-size: 16px 16px;
+        }
+        .shading-card {
+            box-shadow: 0 10px 30px -5px rgba(168, 28, 28, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
-<body class="bg-stone-50 min-h-screen flex flex-col items-center justify-between pb-8">
+<body class="min-h-screen flex flex-col items-center justify-start p-4 sm:p-6 md:p-8">
 
-    <header class="w-full max-w-md px-4 pt-6 text-center">
-        <!-- Official Vadtaldham Logo -->
-        <div class="bg-white rounded-2xl p-4 shadow-md border border-red-100 flex justify-center items-center mb-4 transition-all-custom hover:shadow-lg">
-            <img 
-                src="vadtaldham-logo.png" 
-                alt="Shree Swaminarayan Vadtaldham Sanatan Mandir Adelaide Official Logo" 
-                class="max-w-full h-auto max-h-48 rounded-lg object-contain"
-                onerror="this.onerror=null; this.src='https://placehold.co/600x300/9b1c1c/ffffff?text=Vadtaldham+Adelaide'"
-            />
-        </div>
+    <!-- Container -->
+    <div class="w-full max-w-md bg-white rounded-3xl overflow-hidden border border-amber-100 shading-card flex flex-col mb-8 transition-all duration-300">
         
-        <!-- Divine Greeting Header -->
-        <h1 class="text-xl font-extrabold text-red-900 leading-tight">
-            Shree Swaminarayan Vadtaldham Sanatan Mandir Adelaide
-        </h1>
-        <p class="text-sm text-amber-700 font-semibold mt-1 tracking-wider uppercase">
-            Jay Shree Swaminarayan 🙏
-        </p>
-    </header>
-
-    <main class="w-full max-w-md px-4 mt-4 flex-grow">
-        <div class="bg-white rounded-3xl shadow-xl border border-stone-200/60 overflow-hidden">
+        <!-- Temple Header Banner -->
+        <div class="bg-gradient-to-b from-amber-50 to-amber-100/50 p-6 flex flex-col items-center border-b border-amber-100">
+            <!-- Temple Logo Image -->
+            <div class="w-36 h-36 bg-white rounded-full p-2 flex items-center justify-center shadow-md mb-4 border border-amber-200">
+                <img 
+                    src="vadtaldham-logo.jpeg" 
+                    alt="Shree Swaminarayan Vadtaldham Sanatan Mandir Adelaide Logo" 
+                    class="max-w-full max-h-full object-contain rounded-full"
+                    onerror="this.onerror=null; this.src='https://placehold.co/200x200?text=Vadtaldham+Adelaide';"
+                />
+            </div>
             
-            <!-- Quick Navigation Banner -->
-            <div class="bg-gradient-to-r from-red-800 to-amber-700 text-white px-6 py-4 text-center">
-                <p class="text-xs uppercase font-bold tracking-widest text-amber-200">Payment & Donation Portal</p>
-                <h2 class="text-lg font-bold mt-0.5">Direct Transfer Directory</h2>
-            </div>
-
-            <!-- Scrollable Information Content -->
-            <div class="p-6 space-y-6">
-                
-                <!-- Quick Instructions -->
-                <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-4 text-sm text-amber-900">
-                    <p class="font-bold mb-1">💡 Super Easy Transfer Instructions:</p>
-                    <ol class="list-decimal pl-4 space-y-1 text-xs">
-                        <li>Tap any <strong class="text-red-900">"Copy"</strong> button below to instantly copy that specific detail.</li>
-                        <li>Open your banking app (like Westpac).</li>
-                        <li>Paste directly into the payment fields!</li>
-                    </ol>
-                </div>
-
-                <div class="border border-amber-200/60 rounded-2xl p-4 bg-gradient-to-b from-amber-50/20 to-white">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="bg-amber-600 text-white text-xs font-black uppercase px-2.5 py-1 rounded-full">Option 1: PayID (ABN)</span>
-                        <span class="text-xs text-stone-500 font-medium">Instant Clearance</span>
-                    </div>
-
-                    <!-- PayID Name -->
-                    <div class="mb-3">
-                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">PayID Name</p>
-                        <p class="text-base font-bold text-stone-800 leading-tight" id="payid-name">Shree Swaminarayan Vadtaldham Sanatan Mandir Adelaide</p>
-                    </div>
-
-                    <!-- PayID ABN Number details -->
-                    <div class="bg-stone-50 border border-stone-200 rounded-xl p-3 flex justify-between items-center">
-                        <div>
-                            <p class="text-[10px] text-stone-400 font-bold uppercase tracking-wider">ABN Number to enter</p>
-                            <!-- Note: Replace the sample code ABN below with your actual ABN -->
-                            <p class="text-lg font-extrabold text-stone-900 tracking-wide" id="payid-val">45108236911</p>
-                        </div>
-                        <button 
-                            onclick="copyToClipboard('payid-val', 'copy-payid-btn', 'PayID')"
-                            id="copy-payid-btn"
-                            class="bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-4 py-2.5 rounded-lg transition-all-custom shadow-md hover:shadow-lg flex items-center space-x-1 active:scale-95"
-                        >
-                            <span>📋 Copy PayID</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="border border-red-100 rounded-2xl p-4 bg-gradient-to-b from-red-50/10 to-white">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="bg-red-800 text-white text-xs font-black uppercase px-2.5 py-1 rounded-full">Option 2: Direct Bank Transfer</span>
-                        <span class="text-xs text-stone-500 font-medium">Standard Transfer</span>
-                    </div>
-
-                    <!-- Account Name -->
-                    <div class="mb-3">
-                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">Account Name</p>
-                        <p class="text-base font-bold text-stone-800 leading-tight" id="bank-acc-name">Shree Swaminarayan Vadtaldham Sanatan Mandir Adelaide</p>
-                    </div>
-
-                    <!-- Bank Name -->
-                    <div class="mb-4">
-                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">Bank Name</p>
-                        <p class="text-sm font-semibold text-stone-700">Westpac</p>
-                    </div>
-
-                    <!-- BSB Detail -->
-                    <div class="bg-stone-50 border border-stone-200 rounded-xl p-3 flex justify-between items-center mb-3">
-                        <div>
-                            <p class="text-[10px] text-stone-400 font-bold uppercase tracking-wider">BSB Number</p>
-                            <!-- Note: Replace the sample BSB below with your actual BSB -->
-                            <p class="text-lg font-extrabold text-stone-900 tracking-wide" id="bsb-val">035-000</p>
-                        </div>
-                        <button 
-                            onclick="copyToClipboard('bsb-val', 'copy-bsb-btn', 'BSB')"
-                            id="copy-bsb-btn"
-                            class="bg-red-800 hover:bg-red-950 text-white font-bold text-xs px-4 py-2.5 rounded-lg transition-all-custom shadow-md hover:shadow-lg flex items-center space-x-1 active:scale-95"
-                        >
-                            <span>📋 Copy BSB</span>
-                        </button>
-                    </div>
-
-                    <!-- Account Number Detail -->
-                    <div class="bg-stone-50 border border-stone-200 rounded-xl p-3 flex justify-between items-center">
-                        <div>
-                            <p class="text-[10px] text-stone-400 font-bold uppercase tracking-wider">Account Number</p>
-                            <!-- Note: Replace the sample Account number below with your actual Account Number -->
-                            <p class="text-lg font-extrabold text-stone-900 tracking-wide" id="account-val">123456</p>
-                        </div>
-                        <button 
-                            onclick="copyToClipboard('account-val', 'copy-acc-btn', 'Account No')"
-                            id="copy-acc-btn"
-                            class="bg-red-800 hover:bg-red-950 text-white font-bold text-xs px-4 py-2.5 rounded-lg transition-all-custom shadow-md hover:shadow-lg flex items-center space-x-1 active:scale-95"
-                        >
-                            <span>📋 Copy Account No</span>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
+            <h1 class="text-xl sm:text-2xl font-bold text-templeRed text-center leading-tight">
+                Shree Swaminarayan Vadtaldham Sanatan Mandir
+            </h1>
+            <p class="text-amber-800 font-medium tracking-widest text-xs uppercase mt-2">
+                Adelaide, South Australia
+            </p>
+            <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-templeRed to-transparent mt-3"></div>
         </div>
-    </main>
 
-    <footer class="w-full max-w-md px-4 mt-6 text-center">
-        <p class="text-[11px] text-stone-400 leading-relaxed">
-            Thank you for your generous contribution to the temple.<br>
-            All direct transfers cleared under secure Australian banking standards.
-        </p>
-    </footer>
+        <!-- Body Content -->
+        <div class="p-6 flex-1 flex flex-col">
+            
+            <p class="text-sm text-center text-stone-600 mb-5 italic">
+                Thank you for your generous contribution to support the temple services and community initiatives. Please choose a payment option below.
+            </p>
 
+            <!-- IMPORTANT INVOICE/RECEIPT ALERT BOX -->
+            <div class="mb-6 bg-red-50 border-l-4 border-templeRed rounded-r-2xl p-4 shadow-sm">
+                <div class="flex gap-2.5 items-start">
+                    <i class="fa-solid fa-receipt text-templeRed text-lg mt-0.5"></i>
+                    <div>
+                        <h3 class="font-bold text-stone-800 text-sm">Need a Tax Invoice / Receipt?</h3>
+                        <p class="text-xs text-stone-600 mt-1 leading-relaxed">
+                            Please include your <strong class="text-templeRed font-bold">Mobile Number</strong> in the payment <strong class="text-stone-800 font-semibold">Reference / Description</strong> box when transfering so we can text you your invoice.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option 1: PayID (ABN) -->
+            <div class="mb-6 bg-amber-50/50 rounded-2xl p-4 border border-amber-200/60">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider">Option 1</span>
+                    <h2 class="text-base font-bold text-stone-800">Fast PayID Transfer</h2>
+                </div>
+                
+                <p class="text-xs text-stone-500 mb-3 leading-relaxed">
+                    Instantly transfer funds directly from any Australian banking app with zero fees.
+                </p>
+
+                <!-- Interactive Copy Field for PayID -->
+                <div class="bg-white border border-stone-200 rounded-xl p-3 flex justify-between items-center mb-3">
+                    <div class="flex-1 min-w-0 pr-2">
+                        <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">PayID (ABN)</span>
+                        <span id="payid-val" class="font-mono text-base font-bold text-stone-800 tracking-wider">45108236911</span>
+                    </div>
+                    <button 
+                        onclick="copyField('payid-val', 'payid-btn')" 
+                        id="payid-btn" 
+                        class="bg-templeRed hover:bg-red-800 text-white font-semibold py-2 px-3 text-xs rounded-lg flex items-center gap-1.5 active:scale-95 transition-all duration-150 shrink-0"
+                    >
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+
+                <!-- Interactive Copy Field for Account Name (PayID) -->
+                <div class="bg-white border border-stone-200 rounded-xl p-3 flex justify-between items-center">
+                    <div class="flex-1 min-w-0 pr-2">
+                        <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">Account Name</span>
+                        <span id="name-val" class="text-sm font-semibold text-stone-700 block truncate">Shree Swaminarayan Vadtaldham Sanatan Mandir</span>
+                    </div>
+                    <button 
+                        onclick="copyField('name-val', 'name-btn')" 
+                        id="name-btn" 
+                        class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold py-2 px-3 text-xs rounded-lg flex items-center gap-1.5 active:scale-95 transition-all duration-150 shrink-0"
+                    >
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- Option 2: Standard Bank Account Transfer -->
+            <div class="mb-6 bg-stone-50 rounded-2xl p-4 border border-stone-200">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-stone-200 text-stone-700 px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider">Option 2</span>
+                    <h2 class="text-base font-bold text-stone-800">Direct Bank Transfer</h2>
+                </div>
+
+                <p class="text-xs text-stone-500 mb-3 leading-relaxed">
+                    Great for standard banking, scheduled monthly payments, or recurring direct deposits.
+                </p>
+
+                <!-- Interactive Copy Field for Account Name -->
+                <div class="bg-white border border-stone-200 rounded-xl p-3 flex justify-between items-center mb-3">
+                    <div class="flex-1 min-w-0 pr-2">
+                        <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">Account Name</span>
+                        <span id="bank-name-val" class="text-sm font-semibold text-stone-700 block truncate">Shree Swaminarayan Vadtaldham Sanatan Mandir</span>
+                    </div>
+                    <button 
+                        onclick="copyField('bank-name-val', 'bank-name-btn')" 
+                        id="bank-name-btn" 
+                        class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold py-2 px-3 text-xs rounded-lg flex items-center gap-1.5 active:scale-95 transition-all duration-150 shrink-0"
+                    >
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+
+                <!-- Interactive Copy Field for BSB -->
+                <div class="bg-white border border-stone-200 rounded-xl p-3 flex justify-between items-center mb-3">
+                    <div class="flex-1 min-w-0 pr-2">
+                        <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">BSB</span>
+                        <span id="bsb-val" class="font-mono text-base font-bold text-stone-800 tracking-wider">035-046</span>
+                    </div>
+                    <button 
+                        onclick="copyField('bsb-val', 'bsb-btn')" 
+                        id="bsb-btn" 
+                        class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold py-2 px-3 text-xs rounded-lg flex items-center gap-1.5 active:scale-95 transition-all duration-150 shrink-0"
+                    >
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+
+                <!-- Interactive Copy Field for Account Number -->
+                <div class="bg-white border border-stone-200 rounded-xl p-3 flex justify-between items-center">
+                    <div class="flex-1 min-w-0 pr-2">
+                        <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">Account Number</span>
+                        <span id="acc-val" class="font-mono text-base font-bold text-stone-800 tracking-wider">651082</span>
+                    </div>
+                    <button 
+                        onclick="copyField('acc-val', 'acc-btn')" 
+                        id="acc-btn" 
+                        class="bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold py-2 px-3 text-xs rounded-lg flex items-center gap-1.5 active:scale-95 transition-all duration-150 shrink-0"
+                    >
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- Toast Alert Area -->
+            <div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-stone-900 text-stone-100 text-xs px-5 py-3 rounded-full shadow-xl flex items-center gap-2 tracking-wide font-medium z-50">
+                <i class="fa-solid fa-circle-check text-green-400 text-sm"></i>
+                <span id="toast-text">Details copied!</span>
+            </div>
+
+            <!-- Steps & Instructions -->
+            <div class="text-xs text-stone-600 bg-stone-100/70 rounded-xl p-4 border border-stone-200/50 mt-auto">
+                <p class="font-bold text-stone-800 mb-2 flex items-center gap-1.5">
+                    <i class="fa-solid fa-info-circle text-templeRed"></i> Instructions for Westpac & other apps:
+                </p>
+                <ol class="list-decimal list-inside space-y-1.5 leading-relaxed pl-1">
+                    <li>Tap the <strong class="text-templeRed font-bold">Copy</strong> button next to any detail.</li>
+                    <li>Open your bank's mobile application.</li>
+                    <li>Select <strong class="text-stone-800">Pay Anyone</strong>.</li>
+                    <li>Paste the details and remember to enter your <strong class="text-templeRed font-bold">Mobile Number</strong> in the description box.</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <p class="text-[11px] text-stone-500 text-center select-none pb-4">
+        © 2026 Shree Swaminarayan Vadtaldham Sanatan Mandir Adelaide. All rights reserved.
+    </p>
+
+    <!-- Native Interaction Clipboard Script -->
     <script>
-        /**
-         * Robust, cross-device copy mechanism designed for perfect execution on modern mobile browsers.
-         * Falls back to a dummy input element to ensure success on iOS WebView/Safari.
-         */
-        function copyToClipboard(elementId, buttonId, labelText) {
-            // Retrieve text and remove human-friendly spaces
-            let textToCopy = document.getElementById(elementId).innerText.trim().replace(/[-\s]/g, '');
-            
-            // Create temporary textarea element for reliable selection
-            const tempTextArea = document.createElement("textarea");
-            tempTextArea.value = textToCopy;
-            tempTextArea.style.position = "fixed";  // Prevent scrolling to bottom of screen
-            tempTextArea.style.left = "-9999px";
-            document.body.appendChild(tempTextArea);
-            
-            tempTextArea.select();
-            tempTextArea.setSelectionRange(0, 99999); // Safe selector range for iOS
+        function copyField(targetId, buttonId) {
+            const textToCopy = document.getElementById(targetId).innerText.trim();
+            const actionButton = document.getElementById(buttonId);
 
-            try {
-                const successful = document.execCommand("copy");
-                if (successful) {
-                    showSuccessState(buttonId, labelText);
+            // Execute the native copy command
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Flash visual feedback for the button
+                const originalContent = actionButton.innerHTML;
+                
+                if(buttonId === 'payid-btn') {
+                    actionButton.className = "bg-green-600 text-white font-semibold py-2 px-3 text-xs rounded-lg flex items-center gap-1.5 shrink-0 transition-all duration-150";
                 } else {
-                    fallbackPrompt(textToCopy);
+                    actionButton.className = "bg-green-100 text-green-700 font-semibold py-2 px-3 text-xs rounded-lg flex items-center gap-1.5 shrink-0 transition-all duration-150";
                 }
-            } catch (err) {
-                fallbackPrompt(textToCopy);
-            }
+                actionButton.innerHTML = `<i class="fa-solid fa-check"></i> Copied`;
 
-            document.body.removeChild(tempTextArea);
+                // Show global floating notification
+                showToast(`Copied: "${textToCopy}"`);
+
+                // Restore original state after brief moment
+                setTimeout(() => {
+                    actionButton.innerHTML = originalContent;
+                    if(buttonId === 'payid-btn') {
+                        actionButton.className = "bg-templeRed hover:bg-red-800 text-white font-semibold py-2 px-3 text-xs rounded-lg flex items-center gap-1.5 active:scale-95 transition-all duration-150 shrink-0";
+                    } else {
+                        actionButton.className = "bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold py-2 px-3 text-xs rounded-lg flex items-center gap-1.5 active:scale-95 transition-all duration-150 shrink-0";
+                    }
+                }, 2000);
+            }).catch(err => {
+                // Fallback for isolated webviews on older smartphones
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = textToCopy;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextArea);
+                
+                showToast("Copied successfully!");
+            });
         }
 
-        /**
-         * Visually transitions the clicked button into a success indicator
-         */
-        function showSuccessState(buttonId, labelText) {
-            const btn = document.getElementById(buttonId);
-            const originalHTML = btn.innerHTML;
-            const originalBgClass = buttonId === 'copy-payid-btn' ? 'bg-amber-600' : 'bg-red-800';
-            const originalHoverBgClass = buttonId === 'copy-payid-btn' ? 'hover:bg-amber-700' : 'hover:bg-red-950';
-
-            // Transition color to green
-            btn.innerHTML = `<span>✓ Copied!</span>`;
-            btn.classList.remove(originalBgClass, originalHoverBgClass);
-            btn.classList.add('bg-green-600', 'hover:bg-green-700');
-
-            // Reset back to original style after 2 seconds
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+            toastText.innerText = message;
+            
+            toast.classList.remove('hidden');
+            toast.classList.add('animate-bounce');
+            
             setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                btn.classList.remove('bg-green-600', 'hover:bg-green-700');
-                btn.classList.add(originalBgClass, originalHoverBgClass);
-            }, 2000);
-        }
-
-        /**
-         * Fallback mechanism if the browser blocks executive clipboard copy
-         */
-        function fallbackPrompt(textVal) {
-            // Standard user prompts are forbidden by the guidelines, we log to console
-            // and gracefully allow manual text highlighting via fallback interface
-            console.warn("Unable to copy automatically. Text target: " + textVal);
+                toast.classList.add('hidden');
+                toast.classList.remove('animate-bounce');
+            }, 2500);
         }
     </script>
 </body>
